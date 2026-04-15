@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Character Guess (Random Mode)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <h2 class="logo">Character Guess</h2>
+
+    <div class="nav">
+      <a href="index.html" id="nav-daily">Daily</a>
+      <a href="random.html" id="nav-random">Random</a>
+      <button id="open-settings">⚙️ Settings</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>🎲 Random Character Guess</h1>
+
+    <div id="info">
+      <div id="status"></div>
+      <button id="new-round-btn" class="hidden" onclick="newRound()">New Random</button>
+    </div>
+
+    <div class="dropdown">
+      <input type="text" id="search" placeholder="Search character..." autocomplete="off" autocorrect="off"
+        autocapitalize="off" spellcheck="false" name="search_fake" onfocus="showDropdown()" oninput="filterList()" />
+      <div id="options" class="options hidden"></div>
+    </div>
+
+    <table id="result">
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Debut</th>
+        <th>Birthday</th>
+        <th>Branch</th>
+      </tr>
+    </table>
+  </div>
+
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Settings</h2>
+
+      <label>
+        <input type="checkbox" id="setting-unlimited">
+        Unlimited Tries
+      </label>
+
+      <label>
+        <input type="checkbox" id="setting-hint">
+        Enable Hints
+      </label>
+
+      <br><br>
+      <button onclick="closeSettings()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
