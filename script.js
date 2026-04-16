@@ -361,6 +361,7 @@ function newRound() {
   localStorage.removeItem("guesses_random");
 
   const seed = getOrCreateRandomSeed();
+  console.log(seed);
   target = data[seed];
 
   document.getElementById("result").innerHTML = `
@@ -376,6 +377,7 @@ function newRound() {
 
   hasWon = false;
   selected = null;
+  guessCount = 0;
   searchInput.disabled = false;
   searchInput.value = "";
 
