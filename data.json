@@ -1,154 +1,274 @@
 [
     {
-        "name": "Taka Radjiman",
-        "height": 175.0,
-        "debut": "2019-09-13",
-        "birthday": "03-14",
-        "branch": "ID",
-        "image": "./image/taka_radjiman.jpg"
-    },
-    {
-        "name": "ZEA Cornelia",
-        "height": 149.0,
-        "debut": "2019-09-13",
-        "birthday": "08-29",
-        "branch": "ID",
-        "image": "./image/zea_cornelia.jpg"
-    },
-    {
-        "name": "Hana Macchia",
-        "height": 158.0,
-        "debut": "2019-09-13",
-        "birthday": "03-11",
-        "branch": "ID",
-        "image": "./image/hana_macchia.jpg"
-    },
-    {
-        "name": "Rai Galilei",
-        "height": 158.0,
-        "debut": "2019-12-18",
-        "birthday": "09-21",
-        "branch": "ID",
-        "image": "./image/rai_galilei.jpg"
-    },
-    {
         "name": "Amicia Michella",
-        "height": 150.0,
+        "height": 150,
         "debut": "2019-12-18",
         "birthday": "12-27",
         "branch": "ID",
-        "image": "./image/amicia_michella.jpg"
-    },
-    {
-        "name": "Miyu Ottavia",
-        "height": 155.0,
-        "debut": "2019-12-18",
-        "birthday": "05-08",
-        "branch": "ID",
-        "image": "./image/miyu_ottavia.jpg"
-    },
-    {
-        "name": "Riksa Dhirendra",
-        "height": 178.0,
-        "debut": "2019-12-18",
-        "birthday": "05-01",
-        "branch": "ID",
-        "image": "./image/riksa_dhirendra.jpg"
+        "color": null,
+        "quote": null
     },
     {
         "name": "Azura Cecillia",
-        "height": 171.0,
+        "height": 171,
         "debut": "2020-03-13",
         "birthday": "07-20",
         "branch": "ID",
-        "image": "./image/azura_cecillia.jpg"
-    },
-    {
-        "name": "Nara Haramaung",
-        "height": 173.0,
-        "debut": "2020-03-13",
-        "birthday": "07-29",
-        "branch": "ID",
-        "image": "./image/nara_haramaung.jpg"
-    },
-    {
-        "name": "Layla Alstroemeria",
-        "height": 152.0,
-        "debut": "2020-03-13",
-        "birthday": "09-26",
-        "branch": "ID",
-        "image": "./image/layla_alstroemeria.jpg"
-    },
-    {
-        "name": "Etna Crimson",
-        "height": 154.0,
-        "debut": "2020-08-08",
-        "birthday": "11-10",
-        "branch": "ID",
-        "image": "./image/etna_crimson.jpg"
+        "color": null,
+        "quote": null
     },
     {
         "name": "Bonnivier Pranaja",
-        "height": 183.0,
+        "height": 183,
         "debut": "2020-08-08",
         "birthday": "09-19",
         "branch": "ID",
-        "image": "./image/bonnivier_pranaja.jpg"
-    },
-    {
-        "name": "Siska Leontyne",
-        "height": 170.0,
-        "debut": "2020-08-08",
-        "birthday": "02-14",
-        "branch": "ID",
-        "image": "./image/siska_leontyne.jpg"
-    },
-    {
-        "name": "Nagisa Arcinia",
-        "height": 134.0,
-        "debut": "2020-11-15",
-        "birthday": "07-23",
-        "branch": "ID",
-        "image": "./image/nagisa_arcinia.jpg"
+        "color": null,
+        "quote": null
     },
     {
         "name": "Derem Kado",
-        "height": 156.0,
+        "height": 156,
         "debut": "2020-11-15",
         "birthday": "01-14",
         "branch": "ID",
-        "image": "./image/derem_kado.jpg"
+        "color": null,
+        "quote": null
     },
     {
-        "name": "Reza Avanluna",
-        "height": 175.0,
-        "debut": "2020-11-15",
-        "birthday": "02-29",
+        "name": "Elira Pendora",
+        "height": 160,
+        "debut": "2021-05-16",
+        "birthday": "10-16",
+        "branch": "EN",
+        "color": "#95C8D8",
+        "quote": null
+    },
+    {
+        "name": "Enna Alouette",
+        "height": 150,
+        "debut": "2021-10-09",
+        "birthday": "02-20",
+        "branch": "EN",
+        "color": "#858ED1",
+        "quote": null
+    },
+    {
+        "name": "Etna Crimson",
+        "height": 154,
+        "debut": "2020-08-08",
+        "birthday": "11-10",
         "branch": "ID",
-        "image": "./image/reza_avanluna.jpg"
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Finana Ryugu",
+        "height": 140,
+        "debut": "2021-05-16",
+        "birthday": "06-21",
+        "branch": "EN",
+        "color": "#35D9AD",
+        "quote": null
+    },
+    {
+        "name": "Hana Macchia",
+        "height": 158,
+        "debut": "2019-09-13",
+        "birthday": "03-11",
+        "branch": "ID",
+        "color": null,
+        "quote": null
     },
     {
         "name": "Hyona Elatiora",
-        "height": 165.0,
+        "height": 165,
         "debut": "2021-07-29",
         "birthday": "10-24",
         "branch": "ID",
-        "image": "./image/hyona_elatiora.jpg"
+        "color": null,
+        "quote": null
     },
     {
-        "name": "Xia Ekavira",
-        "height": 169.0,
-        "debut": "2021-07-29",
-        "birthday": "05-27",
+        "name": "Layla Alstroemeria",
+        "height": 152,
+        "debut": "2020-03-13",
+        "birthday": "09-26",
         "branch": "ID",
-        "image": "./image/xia_ekavira.jpg"
+        "color": null,
+        "quote": null
     },
     {
         "name": "Mika Melatika",
-        "height": 155.0,
+        "height": 155,
         "debut": "2021-07-29",
         "birthday": "04-01",
         "branch": "ID",
-        "image": "./image/mika_melatika.jpg"
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Millie Parfait",
+        "height": 150,
+        "debut": "2021-10-09",
+        "birthday": "12-12",
+        "branch": "EN",
+        "color": "#FEBC87",
+        "quote": null
+    },
+    {
+        "name": "Miyu Ottavia",
+        "height": 155,
+        "debut": "2019-12-18",
+        "birthday": "05-08",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Nagisa Arcinia",
+        "height": 134,
+        "debut": "2020-11-15",
+        "birthday": "07-23",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Nara Haramaung",
+        "height": 173,
+        "debut": "2020-03-13",
+        "birthday": "07-29",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Nina Kosaka",
+        "height": 174,
+        "debut": "2021-10-09",
+        "birthday": "11-22",
+        "branch": "EN",
+        "color": "#660000",
+        "quote": null
+    },
+    {
+        "name": "Petra Gurin",
+        "height": 142,
+        "debut": "2021-07-18",
+        "birthday": "12-04",
+        "branch": "EN",
+        "color": "#FFAE42",
+        "quote": null
+    },
+    {
+        "name": "Pomu Rainpuff",
+        "height": 156,
+        "debut": "2021-05-16",
+        "birthday": "07-12",
+        "branch": "EN",
+        "color": "#258E70",
+        "quote": null
+    },
+    {
+        "name": "Rai Galilei",
+        "height": 158,
+        "debut": "2019-12-18",
+        "birthday": "09-21",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Reimu Endou",
+        "height": 155,
+        "debut": "2021-10-09",
+        "birthday": "11-02",
+        "branch": "EN",
+        "color": "#B90B4A",
+        "quote": null
+    },
+    {
+        "name": "Reza Avanluna",
+        "height": 175,
+        "debut": "2020-11-15",
+        "birthday": "02-29",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Riksa Dhirendra",
+        "height": 178,
+        "debut": "2019-12-18",
+        "birthday": "05-01",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Rosemi Lovelock",
+        "height": 150,
+        "debut": "2021-07-18",
+        "birthday": "09-16",
+        "branch": "EN",
+        "color": "#DC3753",
+        "quote": null
+    },
+    {
+        "name": "Selen Tatsuki",
+        "height": 160,
+        "debut": "2021-07-18",
+        "birthday": "11-30",
+        "branch": "EN",
+        "color": "#7E4EAC",
+        "quote": null
+    },
+    {
+        "name": "Siska Leontyne",
+        "height": 170,
+        "debut": "2020-08-08",
+        "birthday": "02-14",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Taka Radjiman",
+        "height": 175,
+        "debut": "2019-09-13",
+        "birthday": "03-14",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "Xia Ekavira",
+        "height": 169,
+        "debut": "2021-07-29",
+        "birthday": "05-27",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "ZEA Cornelia",
+        "height": 149,
+        "debut": "2019-09-13",
+        "birthday": "08-29",
+        "branch": "ID",
+        "color": null,
+        "quote": null
+    },
+    {
+        "name": "name",
+        "height": null,
+        "debut": "debut",
+        "birthday": "birthday",
+        "branch": "branch",
+        "color": "color",
+        "quote": [
+            "quote"
+        ]
     }
 ]
