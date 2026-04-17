@@ -88,6 +88,7 @@ function seededRandom(seed) {
 
 function getDailyTarget(data) {
   const seed = parseInt(getTodayKey().replace(/-/g, ""));
+  console.log(seed);
   const rand = seededRandom(seed);
   return data[Math.floor(rand * data.length)];
 }
@@ -361,7 +362,6 @@ function newRound() {
   localStorage.removeItem("guesses_random");
 
   const seed = getOrCreateRandomSeed();
-  console.log(seed);
   target = data[seed];
 
   document.getElementById("result").innerHTML = `
