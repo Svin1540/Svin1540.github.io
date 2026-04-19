@@ -78,7 +78,11 @@ fetch("data.json")
 // RANDOM / DAILY LOGIC
 // =========================
 function getTodayKey() {
-  return new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 function seededRandom(seed) {
@@ -142,7 +146,8 @@ function renderGuess(char, save = true) {
   if (char.name === target.name) {
     hasWon = true;
     lockGame();
-    showNewRoundButton();
+
+    if(isRandomMode) showNewRoundButton();
 
     if (!isRandomMode) {
       const today = getTodayKey();
@@ -160,6 +165,10 @@ function renderGuess(char, save = true) {
   if (guessCount >= maxTries && !hasWon) {
     lockGame();
     showNewRoundButton();
+
+    if (!isRandomMode) {
+    updateStreak(false);
+  }
 
     document.getElementById("status").textContent = "❌ You lost!";
   }
@@ -438,6 +447,13 @@ const now = new Date();
       tomorrow,
       diff
     })
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hour = String(now.getHours()).padStart(2,"0");
+  console.log(`${year}-${month}-${day}`);
+  console.log(hour);
 }
 
 debug()
