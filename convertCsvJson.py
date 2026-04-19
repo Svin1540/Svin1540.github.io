@@ -7,7 +7,8 @@ from datetime import datetime
 CONFIG = {
     "files": [
         "ProjectData - ID.csv",
-        "ProjectData - EN.csv"
+        "ProjectData - EN.csv",
+        "ProjectData - JP_1.csv"
     ],
     "exports": {
         "data": ["name", "height", "debut", "birthday", "branch", "color", "quote"],

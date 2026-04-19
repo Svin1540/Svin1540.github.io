@@ -45,6 +45,15 @@
         "quote": null
     },
     {
+        "name": "Elu",
+        "height": 170,
+        "debut": "2018-02-09",
+        "birthday": "01-24",
+        "branch": "JP",
+        "color": "#E2364F",
+        "quote": null
+    },
+    {
         "name": "Enna Alouette",
         "height": 150,
         "debut": "2021-10-09",
@@ -78,6 +87,15 @@
         "birthday": "03-11",
         "branch": "ID",
         "color": null,
+        "quote": null
+    },
+    {
+        "name": "Higuchi Kaede",
+        "height": 167,
+        "debut": "2018-02-09",
+        "birthday": null,
+        "branch": "JP",
+        "color": "#FBAF71",
         "quote": null
     },
     {
@@ -123,6 +141,15 @@
         "birthday": "05-08",
         "branch": "ID",
         "color": null,
+        "quote": null
+    },
+    {
+        "name": "Moira",
+        "height": 165,
+        "debut": "2018-02-09",
+        "birthday": "02-10",
+        "branch": "JP",
+        "color": "#91ABD0",
         "quote": null
     },
     {
@@ -225,12 +252,39 @@
         "quote": null
     },
     {
+        "name": "Shibuya Hajime",
+        "height": 180,
+        "debut": "2018-02-08",
+        "birthday": "05-05",
+        "branch": "JP",
+        "color": "#D7FAD7",
+        "quote": null
+    },
+    {
+        "name": "Shizuka Rin",
+        "height": 158,
+        "debut": "2018-02-10",
+        "birthday": "08-28",
+        "branch": "JP",
+        "color": "#745399",
+        "quote": null
+    },
+    {
         "name": "Siska Leontyne",
         "height": 170,
         "debut": "2020-08-08",
         "birthday": "02-14",
         "branch": "ID",
         "color": null,
+        "quote": null
+    },
+    {
+        "name": "Suzuya Aki",
+        "height": 155,
+        "debut": "2018-02-10",
+        "birthday": "11-28",
+        "branch": "JP",
+        "color": "#F2F9C3",
         "quote": null
     },
     {
@@ -243,12 +297,30 @@
         "quote": null
     },
     {
+        "name": "Tsukino Mito",
+        "height": 151,
+        "debut": "2018-02-08",
+        "birthday": "09-24",
+        "branch": "JP",
+        "color": "#E43F3B",
+        "quote": null
+    },
+    {
         "name": "Xia Ekavira",
         "height": 169,
         "debut": "2021-07-29",
         "birthday": "05-27",
         "branch": "ID",
         "color": null,
+        "quote": null
+    },
+    {
+        "name": "Yuuki Chihiro",
+        "height": 138,
+        "debut": "2018-02-09",
+        "birthday": "07-16",
+        "branch": "JP",
+        "color": "#7BB3EE",
         "quote": null
     },
     {
@@ -259,16 +331,5 @@
         "branch": "ID",
         "color": null,
         "quote": null
-    },
-    {
-        "name": "name",
-        "height": null,
-        "debut": "debut",
-        "birthday": "birthday",
-        "branch": "branch",
-        "color": "color",
-        "quote": [
-            "quote"
-        ]
     }
 ]

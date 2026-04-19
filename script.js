@@ -88,7 +88,6 @@ function seededRandom(seed) {
 
 function getDailyTarget(data) {
   const seed = parseInt(getTodayKey().replace(/-/g, ""));
-  console.log(seed);
   const rand = seededRandom(seed);
   return data[Math.floor(rand * data.length)];
 }
@@ -423,3 +422,22 @@ function closeSettings() {
   saveSettings();
   modal.classList.add("hidden");
 }
+
+//log
+function debug(){
+console.log(new Date().toISOString() + " daily seed log");
+
+const now = new Date();
+    const tomorrow = new Date();
+    tomorrow.setHours(24, 0, 0, 0);
+
+    const diff = tomorrow - now;
+
+    console.log({
+      now,
+      tomorrow,
+      diff
+    })
+}
+
+debug()

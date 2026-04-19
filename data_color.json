@@ -20,6 +20,10 @@
         "color": "#95C8D8"
     },
     {
+        "name": "Elu",
+        "color": "#E2364F"
+    },
+    {
         "name": "Enna Alouette",
         "color": "#858ED1"
     },
@@ -34,6 +38,10 @@
     {
         "name": "Hana Macchia",
         "color": null
+    },
+    {
+        "name": "Higuchi Kaede",
+        "color": "#FBAF71"
     },
     {
         "name": "Hyona Elatiora",
@@ -54,6 +62,10 @@
     {
         "name": "Miyu Ottavia",
         "color": null
+    },
+    {
+        "name": "Moira",
+        "color": "#91ABD0"
     },
     {
         "name": "Nagisa Arcinia",
@@ -100,16 +112,36 @@
         "color": "#7E4EAC"
     },
     {
+        "name": "Shibuya Hajime",
+        "color": "#D7FAD7"
+    },
+    {
+        "name": "Shizuka Rin",
+        "color": "#745399"
+    },
+    {
         "name": "Siska Leontyne",
         "color": null
+    },
+    {
+        "name": "Suzuya Aki",
+        "color": "#F2F9C3"
     },
     {
         "name": "Taka Radjiman",
         "color": null
     },
     {
+        "name": "Tsukino Mito",
+        "color": "#E43F3B"
+    },
+    {
         "name": "Xia Ekavira",
         "color": null
+    },
+    {
+        "name": "Yuuki Chihiro",
+        "color": "#7BB3EE"
     },
     {
         "name": "ZEA Cornelia",
