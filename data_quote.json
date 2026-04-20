@@ -1,156 +1,194 @@
 [
     {
         "name": "Amicia Michella",
-        "quote": null
+        "quote": null,
+        "image": "amicia_michella"
     },
     {
         "name": "Azura Cecillia",
-        "quote": null
+        "quote": null,
+        "image": "azura_cecillia"
     },
     {
         "name": "Bonnivier Pranaja",
-        "quote": null
+        "quote": null,
+        "image": "bonnivier_pranaja"
     },
     {
         "name": "Derem Kado",
-        "quote": null
+        "quote": null,
+        "image": "derem_kado"
     },
     {
         "name": "Elira Pendora",
-        "quote": null
+        "quote": null,
+        "image": "elira_pendora"
     },
     {
         "name": "Elu",
-        "quote": null
+        "quote": null,
+        "image": "elu"
     },
     {
         "name": "Enna Alouette",
-        "quote": null
+        "quote": null,
+        "image": "enna_alouette"
     },
     {
         "name": "Etna Crimson",
-        "quote": null
+        "quote": null,
+        "image": "etna_crimson"
     },
     {
         "name": "Finana Ryugu",
-        "quote": null
+        "quote": null,
+        "image": "finana_ryugu"
     },
     {
         "name": "Hana Macchia",
-        "quote": null
+        "quote": null,
+        "image": "hana_macchia"
     },
     {
         "name": "Higuchi Kaede",
-        "quote": null
+        "quote": null,
+        "image": "higuchi_kaede"
     },
     {
         "name": "Hyona Elatiora",
-        "quote": null
+        "quote": null,
+        "image": "hyona_elatiora"
     },
     {
         "name": "Layla Alstroemeria",
-        "quote": null
+        "quote": null,
+        "image": "layla_alstroemeria"
     },
     {
         "name": "Mika Melatika",
-        "quote": null
+        "quote": null,
+        "image": "mika_melatika"
     },
     {
         "name": "Millie Parfait",
-        "quote": null
+        "quote": null,
+        "image": "millie_parfait"
     },
     {
         "name": "Miyu Ottavia",
-        "quote": null
+        "quote": null,
+        "image": "miyu_ottavia"
     },
     {
         "name": "Moira",
-        "quote": null
+        "quote": null,
+        "image": "moira"
     },
     {
         "name": "Nagisa Arcinia",
-        "quote": null
+        "quote": null,
+        "image": "nagisa_arcinia"
     },
     {
         "name": "Nara Haramaung",
-        "quote": null
+        "quote": null,
+        "image": "nara_haramaung"
     },
     {
         "name": "Nina Kosaka",
-        "quote": null
+        "quote": null,
+        "image": "nina_kosaka"
     },
     {
         "name": "Petra Gurin",
-        "quote": null
+        "quote": null,
+        "image": "petra_gurin"
     },
     {
         "name": "Pomu Rainpuff",
-        "quote": null
+        "quote": null,
+        "image": "pomu_rainpuff"
     },
     {
         "name": "Rai Galilei",
-        "quote": null
+        "quote": null,
+        "image": "rai_galilei"
     },
     {
         "name": "Reimu Endou",
-        "quote": null
+        "quote": null,
+        "image": "reimu_endou"
     },
     {
         "name": "Reza Avanluna",
-        "quote": null
+        "quote": null,
+        "image": "reza_avanluna"
     },
     {
         "name": "Riksa Dhirendra",
-        "quote": null
+        "quote": null,
+        "image": "riksa_dhirendra"
     },
     {
         "name": "Rosemi Lovelock",
-        "quote": null
+        "quote": null,
+        "image": "rosemi_lovelock"
     },
     {
         "name": "Selen Tatsuki",
-        "quote": null
+        "quote": null,
+        "image": "selen_tatsuki"
     },
     {
         "name": "Shibuya Hajime",
-        "quote": null
+        "quote": null,
+        "image": "shibuya_hajime"
     },
     {
         "name": "Shizuka Rin",
-        "quote": null
+        "quote": null,
+        "image": "shizuka_rin"
     },
     {
         "name": "Siska Leontyne",
-        "quote": null
+        "quote": null,
+        "image": "siska_leontyne"
     },
     {
         "name": "Suzuya Aki",
-        "quote": null
+        "quote": null,
+        "image": "suzuya_aki"
     },
     {
         "name": "Taka Radjiman",
-        "quote": null
+        "quote": null,
+        "image": "taka_radjiman"
     },
     {
         "name": "Tsukino Mito",
-        "quote": null
+        "quote": null,
+        "image": "tsukino_mito"
     },
     {
         "name": "Xia Ekavira",
-        "quote": null
+        "quote": null,
+        "image": "xia_ekavira"
     },
     {
         "name": "Yuuki Chihiro",
-        "quote": null
+        "quote": null,
+        "image": "yuuki_chihiro"
     },
     {
         "name": "ZEA Cornelia",
-        "quote": null
+        "quote": null,
+        "image": "zea_cornelia"
     },
     {
         "name": "name",
         "quote": [
             "quote"
-        ]
+        ],
+        "image": "name"
     }
 ]

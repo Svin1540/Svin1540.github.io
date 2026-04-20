@@ -11,7 +11,7 @@ CONFIG = {
         "ProjectData - JP_1.csv"
     ],
     "exports": {
-        "data": ["name", "height", "debut", "birthday", "branch", "color", "quote"],
+        "data": ["name", "height", "debut", "birthday", "branch"],
         "data_color": ["name", "color"],
         "data_quote": ["name", "quote"]
     }
@@ -159,8 +159,8 @@ for export_name, fields in CONFIG["exports"].items():
     for item in all_data:
         filtered = {k: item.get(k) for k in fields}
 
-        if export_name == "original":
-            filtered["image"] = item["image"]
+        # if export_name == "original":
+        filtered["image"] = item["image"]
 
         output.append(filtered)
 

@@ -30,6 +30,7 @@ let settings = { ...defaultSettings };
 const optionsDiv = document.getElementById("options");
 const searchInput = document.getElementById("search");
 const modal = document.getElementById("settings-modal");
+const targetColor = document.getElementById("targetColor");
 
 // =========================
 // INIT
@@ -39,8 +40,10 @@ function initGame() {
     const seed = getOrCreateRandomSeed();
     hideNewRoundButton();
     target = data[seed];
+    targetColor.style.backgroundColor = target.color;
   } else {
     target = getDailyTarget(data);
+    targetColor.style.backgroundColor = target.color;
   }
 
   loadStreak();
@@ -54,7 +57,7 @@ function initGame() {
 // =========================
 // DATA FETCH
 // =========================
-fetch("data.json")
+fetch("data_color.json")
   .then(res => {
     if (!res.ok) throw new Error("Fetch failed");
     return res.json();
@@ -65,13 +68,8 @@ fetch("data.json")
     initGame();
   })
   .catch(err => {
-    console.warn("Fetch failed, using fallback", err);
-    data = [
-      { name: "Ayaka", image: "https://via.placeholder.com/50", height: 160, debut: "2020-09-15", birthday: "04-01", branch: "JP" },
-      { name: "Bella", image: "https://via.placeholder.com/50", height: 165, debut: "2021-03-10", birthday: "07-12", branch: "EN" },
-      { name: "Clara", image: "https://via.placeholder.com/50", height: 158, debut: "2019-11-20", birthday: "01-25", branch: "ID" }
-    ];
-    initGame();
+    console.warn("Fetch failed", err);
+    data = null
   });
 
 // =========================
@@ -86,7 +84,7 @@ function getTodayKey() {
 }
 
 function seededRandom(seed) {
-  const x = Math.sin(seed) * 10000;
+  const x = Math.cos(seed) * 10000;
   return x - Math.floor(x);
 }
 
@@ -97,11 +95,11 @@ function getDailyTarget(data) {
 }
 
 function getOrCreateRandomSeed() {
-  let seed = localStorage.getItem("randomSeed");
+  let seed = localStorage.getItem("randomColorSeed");
 
   if (!seed) {
     seed = Math.floor(Math.random() * data.length);
-    localStorage.setItem("randomSeed", seed);
+    localStorage.setItem("randomColorSeed", seed);
   }
 
   return parseInt(seed);
@@ -122,20 +120,15 @@ function guess() {
 function renderGuess(char, save = true) {
   const table = document.getElementById("result");
 
-  const [hC, hA] = compareNumber(char.height, target.height);
-  const [dC, dA] = compareDate(char.debut, target.debut);
-  const [bC, bA] = compareDate(char.birthday, target.birthday);
-  const [brC] = compareText(char.branch, target.branch);
-
   const row = document.createElement("tr");
+
+  // Determine if the color matches
+  const colorMatch = char.color === target.color ? "correct" : "wrong";
 
   row.innerHTML = `
     <td><img src="${char.image}"></td>
     <td>${char.name}</td>
-    <td class="${hC}">${char.height} ${hA}</td>
-    <td class="${dC}">${char.debut} ${dA}</td>
-    <td class="${bC}">${char.birthday} ${bA}</td>
-    <td class="${brC}">${char.branch}</td>
+    <td style="background-color: ${char.color};"></td>
   `;
 
   table.appendChild(row);
@@ -167,29 +160,19 @@ function renderGuess(char, save = true) {
     showNewRoundButton();
 
     if (!isRandomMode) {
-    updateStreak(false);
-  }
+      updateStreak(false);
+    }
 
     document.getElementById("status").textContent = "❌ You lost!";
   }
 }
 
+
 // =========================
 // COMPARISON
 // =========================
-function compareNumber(val, targetVal) {
-  if (val === targetVal) return ["correct", ""];
-  return val > targetVal ? ["wrong", "↓"] : ["wrong", "↑"];
-}
 
-function compareDate(val, targetVal) {
-  if (val === targetVal) return ["correct", ""];
-  return val > targetVal ? ["wrong", "↓"] : ["wrong", "↑"];
-}
 
-function compareText(val, targetVal) {
-  return val === targetVal ? ["correct", ""] : ["wrong", ""];
-}
 
 // =========================
 // STORAGE
@@ -372,14 +355,13 @@ function newRound() {
   const seed = getOrCreateRandomSeed();
   target = data[seed];
 
+  targetColor.style.backgroundColor = target.color;
+
   document.getElementById("result").innerHTML = `
     <tr>
       <th>Image</th>
       <th>Name</th>
-      <th>Height</th>
-      <th>Debut</th>
-      <th>Birthday</th>
-      <th>Branch</th>
+      <th>Color</th>
     </tr>
   `;
 

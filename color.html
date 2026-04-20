@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Nijisanji Daily Wordle Game</title>
+  <title>Nijisanji Daily Color Guess Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,12 +21,14 @@
   </div>
 
   <div class="container">
-    <h1>Character Guess</h1>
+    <h1>Color Guess</h1>
 
     <div id="info">
       🔥 Streak: <span id="streak">0</span> |
       ⏳ Next: <span id="timer"></span>
     </div>
+
+    <div id="targetColor"></div>
 
     <div class="dropdown">
       <input type="text" id="search" placeholder="Search character..." autocomplete="off" autocorrect="off"
@@ -38,10 +40,6 @@
       <tr>
         <th>Image</th>
         <th>Name</th>
-        <th>Height</th>
-        <th>Debut</th>
-        <th>Birthday</th>
-        <th>Branch</th>
       </tr>
     </table>
   </div>
@@ -65,7 +63,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="colorGuess.js"></script>
 </body>
 
 </html>
