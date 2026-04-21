@@ -433,7 +433,7 @@ function closeSettings() {
 }
 
 //log for debug purposes
-const version = "1.1"
+const version = "1.2"
 function debug(){
   console.log("debug version " + version);
 }

@@ -144,11 +144,11 @@ function renderGuess(char, save = true) {
 
     if (!isRandomMode) {
       const today = getTodayKey();
-      const lastWin = localStorage.getItem("lastWin");
+      const lastWin = localStorage.getItem("lastColorWin");
 
       if (lastWin !== today) {
         updateStreak(true);
-        localStorage.setItem("lastWin", today);
+        localStorage.setItem("lastColorWin", today);
       }
     }
   }
@@ -179,8 +179,8 @@ function renderGuess(char, save = true) {
 // =========================
 function getStorageKey() {
   return isRandomMode
-    ? "guesses_random_" + localStorage.getItem("randomSeed")
-    : "guesses_" + getTodayKey();
+    ? localStorage.getItem("randomColorSeed")
+    : "colorGuesses_" + getTodayKey();
 }
 
 function saveGuess(name) {
@@ -207,15 +207,15 @@ function loadGuesses() {
 function loadStreak() {
   if(isRandomMode) return;
   document.getElementById("streak").textContent =
-    localStorage.getItem("streak") || 0;
+    localStorage.getItem("colorStreak") || 0;
 }
 
 function updateStreak(win) {
-  let streak = parseInt(localStorage.getItem("streak") || 0);
+  let streak = parseInt(localStorage.getItem("colorStreak") || 0);
 
   streak = win ? streak + 1 : 0;
 
-  localStorage.setItem("streak", streak);
+  localStorage.setItem("colorStreak", streak);
   loadStreak();
 }
 
@@ -349,8 +349,8 @@ function lockGame() {
 }
 
 function newRound() {
-  localStorage.removeItem("randomSeed");
-  localStorage.removeItem("guesses_random");
+  localStorage.removeItem("randomColorSeed");
+  // localStorage.removeItem("guesses_random");
 
   const seed = getOrCreateRandomSeed();
   target = data[seed];
@@ -415,7 +415,7 @@ function closeSettings() {
 }
 
 //log for debug purposes
-const version = "1.1"
+const version = "1.2"
 function debug(){
   console.log("debug version " + version);
 }
