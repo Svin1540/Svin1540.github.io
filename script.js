@@ -196,7 +196,7 @@ function compareText(val, targetVal) {
 // =========================
 function getStorageKey() {
   return isRandomMode
-    ? "guesses_random_" + localStorage.getItem("randomSeed")
+    ? "guesses_random"
     : "guesses_" + getTodayKey();
 }
 
@@ -433,7 +433,7 @@ function closeSettings() {
 }
 
 //log for debug purposes
-const version = "1.2"
+const version = "1.3"
 function debug(){
   console.log("debug version " + version);
 }

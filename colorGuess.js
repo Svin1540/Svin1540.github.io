@@ -332,8 +332,8 @@ function updateHighlight() {
 function highlightNav() {
   const path = window.location.pathname;
 
-  if (path.includes("random.html")) {
-    document.getElementById("nav-random")?.classList.add("active");
+  if (path.includes("color.html")) {
+    document.getElementById("nav-color")?.classList.add("active");
   } else {
     document.getElementById("nav-daily")?.classList.add("active");
   }
@@ -415,7 +415,7 @@ function closeSettings() {
 }
 
 //log for debug purposes
-const version = "1.2"
+const version = "1.3"
 function debug(){
   console.log("debug version " + version);
 }
