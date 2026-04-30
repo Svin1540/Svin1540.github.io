@@ -30,7 +30,7 @@ let settings = { ...defaultSettings };
 const optionsDiv = document.getElementById("options");
 const searchInput = document.getElementById("search");
 const modal = document.getElementById("settings-modal");
-const targetColor = document.getElementById("targetColor");
+const targetColor = document.getElementById("color-box");
 
 // =========================
 // INIT
@@ -140,7 +140,10 @@ function renderGuess(char, save = true) {
     hasWon = true;
     lockGame();
 
-    if(isRandomMode) showNewRoundButton();
+    showColorAnswer();
+    // document.getElementById("status").textContent = "✅ Correct!";
+
+    if (isRandomMode) showNewRoundButton();
 
     if (!isRandomMode) {
       const today = getTodayKey();
@@ -157,13 +160,15 @@ function renderGuess(char, save = true) {
 
   if (guessCount >= maxTries && !hasWon) {
     lockGame();
-    showNewRoundButton();
+
+    if (isRandomMode) showNewRoundButton();
 
     if (!isRandomMode) {
       updateStreak(false);
     }
 
-    document.getElementById("status").textContent = "❌ You lost!";
+    showColorAnswer();
+    // document.getElementById("status").textContent = "❌ You lost!";
   }
 }
 
@@ -205,7 +210,7 @@ function loadGuesses() {
 // STREAK
 // =========================
 function loadStreak() {
-  if(isRandomMode) return;
+  if (isRandomMode) return;
   document.getElementById("streak").textContent =
     localStorage.getItem("colorStreak") || 0;
 }
@@ -372,6 +377,7 @@ function newRound() {
   searchInput.value = "";
 
   hideNewRoundButton();
+  resetColorAnswer();
 }
 
 function showNewRoundButton() {
@@ -414,10 +420,35 @@ function closeSettings() {
   modal.classList.add("hidden");
 }
 
+// =========================
+// ANSWER UI
+// =========================
+function showColorAnswer() {
+  const box = document.getElementById("color-box");
+  const answer = document.getElementById("color-answer");
+  const img = document.getElementById("color-image");
+  const name = document.getElementById("color-name");
+
+  // box.style.background = target.color;
+  img.src = target.image;
+  name.textContent = target.name;
+  answer.classList.remove("hidden");
+}
+
+function resetColorAnswer() {
+  const answer = document.getElementById("color-answer");
+  const img = document.getElementById("color-image");
+  const name = document.getElementById("color-name");
+
+  answer.classList.add("hidden");
+  img.src = "";
+  name.textContent = "";
+}
+
 //log for debug purposes
-const version = "1.3"
-function debug(){
-  console.log("debug version " + version);
+const version = "1.4"
+function debug() {
+  console.log("color mode debug version " + version);
 }
 
 debug()

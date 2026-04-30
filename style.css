@@ -71,11 +71,37 @@ h1 {
 }
 
 #targetColor {
-  position: relative;
-  height: 50px;
-  width: 50px;
-  left: 50%;
-  /* transform: translateX(50%); */
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#color-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  background: gray;
+}
+
+#color-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+#color-answer img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+}
+
+#color-name {
+  font-weight: bold;
+  color: #4cafef;
 }
 
 /* =========================
@@ -87,7 +113,8 @@ h1 {
 
 #search {
   width: 100%;
-  padding: 12px;
+  padding: 12px 14px;
+  box-sizing: border-box;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -246,8 +273,92 @@ img {
 }
 
 /* =========================
+   ANSWER DISPLAY
+========================= */
+#answer-display {
+  margin: 15px auto 5px;
+  padding: 15px;
+  background: #1a1a1c;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  animation: fadeIn 0.3s ease;
+}
+
+#answer-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4cafef;
+}
+
+/* Top layout */
+#top-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Image */
+#answer-display img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+/* Status box */
+#status {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Win / Lose colors */
+.status-win {
+  background: #538d4e;
+}
+
+.status-lose {
+  background: #b03a3a;
+}
+
+/* After-game row */
+#after-game {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Streak */
+#streak-container {
+  color: #aaa;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
    UTILITIES
 ========================= */
 .hidden {
-  display: none;
+  display: none !important;
 }
+
+

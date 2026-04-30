@@ -1,0 +1,48 @@
+.container {
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+#search {
+    font-size: 16px;
+    padding: 14px;
+}
+
+#answer-display img {
+    width: 100px;
+    height: 100px;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+}
+
+th,
+td {
+    font-size: 11px;
+    padding: 6px 6px;
+}
+
+/* Prevent text from wrapping */
+th,
+td {
+    white-space: nowrap;
+}
+
+/* Handle overflow text (cut with ...) */
+td {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Slightly smaller images */
+td img {
+    width: 32px;
+    height: 32px;
+}

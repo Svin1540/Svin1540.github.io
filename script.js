@@ -117,6 +117,7 @@ function guess() {
 
   selected = null;
   searchInput.value = "";
+  searchInput.blur();
 }
 
 function renderGuess(char, save = true) {
@@ -147,7 +148,9 @@ function renderGuess(char, save = true) {
     hasWon = true;
     lockGame();
 
-    if(isRandomMode) showNewRoundButton();
+    showEndGame(true);
+
+    if (isRandomMode) showNewRoundButton();
 
     if (!isRandomMode) {
       const today = getTodayKey();
@@ -164,13 +167,13 @@ function renderGuess(char, save = true) {
 
   if (guessCount >= maxTries && !hasWon) {
     lockGame();
-    showNewRoundButton();
 
+    if (isRandomMode) showNewRoundButton();
     if (!isRandomMode) {
-    updateStreak(false);
-  }
+      updateStreak(false);
+    }
 
-    document.getElementById("status").textContent = "❌ You lost!";
+    showEndGame(false);
   }
 }
 
@@ -222,7 +225,7 @@ function loadGuesses() {
 // STREAK
 // =========================
 function loadStreak() {
-  if(isRandomMode) return;
+  if (isRandomMode) return;
   document.getElementById("streak").textContent =
     localStorage.getItem("streak") || 0;
 }
@@ -253,7 +256,7 @@ function startTimer() {
     const m = Math.floor(diff / 1000 / 60) % 60;
     const s = Math.floor(diff / 1000) % 60;
 
-    el.textContent = `${h}h ${m}m ${s}s`;
+    el.textContent = `⏳ Next: ${h}h ${m}m ${s}s`;
   }, 1000);
 }
 
@@ -300,6 +303,7 @@ function filterList() {
 
 function showDropdown() {
   optionsDiv.classList.remove("hidden");
+  filterList();
   updateHighlight();
 }
 
@@ -390,6 +394,7 @@ function newRound() {
   searchInput.value = "";
 
   hideNewRoundButton();
+  resetTopPanel();
 }
 
 function showNewRoundButton() {
@@ -432,9 +437,51 @@ function closeSettings() {
   modal.classList.add("hidden");
 }
 
+// =========================
+// ANSWER UI
+// =========================
+function showEndGame(win) {
+  const statusEl = document.getElementById("status");
+  const img = document.getElementById("answer-image");
+
+  // show image
+  img.src = target.image;
+  document.getElementById("answer-display").classList.remove("hidden");
+
+  // show status
+  statusEl.classList.remove("hidden");
+  statusEl.classList.remove("status-win", "status-lose");
+
+  if (win) {
+    statusEl.classList.add("status-win");
+    statusEl.textContent = `✅ You win! The character was ${target.name}`;
+  } else {
+    statusEl.classList.add("status-lose");
+    statusEl.textContent = `❌ You lost! The character was ${target.name}`;
+  }
+
+  // show timer / button container
+  document.getElementById("after-game").classList.remove("hidden");
+
+  if (isRandomMode) {
+    showNewRoundButton();
+  }
+}
+
+function resetTopPanel() {
+  document.getElementById("answer-display").classList.add("hidden");
+
+  const status = document.getElementById("status");
+  status.classList.add("hidden");
+  status.classList.remove("status-win", "status-lose");
+  status.textContent = "";
+
+  document.getElementById("after-game").classList.add("hidden");
+}
+
 //log for debug purposes
-const version = "1.3"
-function debug(){
+const version = "2.0"
+function debug() {
   console.log("debug version " + version);
 }
 
