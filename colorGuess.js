@@ -126,7 +126,7 @@ function renderGuess(char, save = true) {
   const colorMatch = char.color === target.color ? "correct" : "wrong";
 
   row.innerHTML = `
-    <td><img src="${char.image}"></td>
+    <td><img src="./images/${char.image}.webp"></td>
     <td>${char.name}</td>
     <td style="background-color: ${char.color};"></td>
   `;
@@ -258,7 +258,7 @@ function renderList(list) {
     div.className = "option";
 
     div.innerHTML = `
-      <img src="${char.image}">
+      <img src="./images/${char.image}.webp">
       <span>${char.name}</span>
     `;
 
@@ -430,7 +430,7 @@ function showColorAnswer() {
   const name = document.getElementById("color-name");
 
   // box.style.background = target.color;
-  img.src = target.image;
+  img.src = "./images/" + target.image + ".webp";
   name.textContent = target.name;
   answer.classList.remove("hidden");
 }

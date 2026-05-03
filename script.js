@@ -131,7 +131,7 @@ function renderGuess(char, save = true) {
   const row = document.createElement("tr");
 
   row.innerHTML = `
-    <td><img src="${char.image}"></td>
+    <td><img src="./images/${char.image}.webp"></td>
     <td>${char.name}</td>
     <td class="${hC}">${char.height} ${hA}</td>
     <td class="${dC}">${char.debut} ${dA}</td>
@@ -273,7 +273,7 @@ function renderList(list) {
     div.className = "option";
 
     div.innerHTML = `
-      <img src="${char.image}">
+      <img src="./images/${char.image}.webp">
       <span>${char.name}</span>
     `;
 
@@ -445,7 +445,7 @@ function showEndGame(win) {
   const img = document.getElementById("answer-image");
 
   // show image
-  img.src = target.image;
+  img.src = "./images/" + target.image + ".webp";
   document.getElementById("answer-display").classList.remove("hidden");
 
   // show status
