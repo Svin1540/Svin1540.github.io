@@ -118,7 +118,7 @@ function guess() {
 }
 
 function renderGuess(char, save = true) {
-  const table = document.getElementById("result");
+  const table = document.getElementById("resultColor");
 
   const row = document.createElement("tr");
 
@@ -362,7 +362,7 @@ function newRound() {
 
   targetColor.style.backgroundColor = target.color;
 
-  document.getElementById("result").innerHTML = `
+  document.getElementById("resultColor").innerHTML = `
     <tr>
       <th>Image</th>
       <th>Name</th>

@@ -17,7 +17,7 @@ h1 {
     height: 100px;
 }
 
-table {
+table#result {
     display: block;
     overflow-x: auto;
 }

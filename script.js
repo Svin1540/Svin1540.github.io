@@ -134,8 +134,8 @@ function renderGuess(char, save = true) {
     <td><img src="./images/${char.image}.webp"></td>
     <td>${char.name}</td>
     <td class="${hC}">${char.height} ${hA}</td>
-    <td class="${dC}">${char.debut} ${dA}</td>
-    <td class="${bC}">${char.birthday} ${bA}</td>
+    <td class="${dC}">${formatDebut(char.debut)} ${dA}</td>
+    <td class="${bC}">${formatBirthday(char.birthday)} ${bA}</td>
     <td class="${brC}">${char.branch}</td>
   `;
 
@@ -175,6 +175,24 @@ function renderGuess(char, save = true) {
 
     showEndGame(false);
   }
+}
+
+// =========================
+// PARSER
+// =========================
+function formatBirthday(dateStr) {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long"
+  });
+}
+
+function formatDebut(dateStr) {
+  return new Date(dateStr).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
 }
 
 // =========================
