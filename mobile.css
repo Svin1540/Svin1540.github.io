@@ -34,13 +34,6 @@ td {
     white-space: nowrap;
 }
 
-/* Handle overflow text (cut with ...) */
-td {
-    max-width: 80px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 /* Slightly smaller images */
 td img {
     width: 32px;
