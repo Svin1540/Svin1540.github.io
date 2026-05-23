@@ -115,6 +115,7 @@ function guess() {
 
   selected = null;
   searchInput.value = "";
+  searchInput.blur();
 }
 
 function renderGuess(char, save = true) {
@@ -288,6 +289,7 @@ function filterList() {
 
 function showDropdown() {
   optionsDiv.classList.remove("hidden");
+  filterList();
   updateHighlight();
 }
 
