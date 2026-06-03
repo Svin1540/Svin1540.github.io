@@ -2,6 +2,7 @@
 // GLOBAL STATE
 // =========================
 const isRandomMode = window.location.pathname.includes("random.html");
+const streakKey = isRandomMode ? "randomStreak" : "random";
 
 let data = [];
 let target;
@@ -145,7 +146,7 @@ function renderGuess(char, save = true) {
     showEndGame(true);
 
     if (isRandomMode) {
-      if(!localStorage.getItem("isRandomWin"))
+      if (!localStorage.getItem("isRandomWin"))
         updateStreak(true);
       showNewRoundButton();
     }
@@ -241,22 +242,18 @@ function loadGuesses() {
 // STREAK
 // =========================
 function loadStreak() {
-  document.getElementById("streak").textContent = (
-    isRandomMode ? localStorage.getItem("randomStreak")
-    : localStorage.getItem("streak")
-  ) || 0;
+  document.getElementById("streak").textContent =
+    (localStorage.getItem(streakKey)) || 0;
 }
 
 function updateStreak(win) {
-  let streak = parseInt((
-    isRandomMode ? localStorage.getItem("randomStreak") : localStorage.getItem("streak")
-  ) || 0);
+  let streak = parseInt((localStorage.getItem(streakKey)) || 0);
 
   streak = win ? streak + 1 : 0;
 
-  isRandomMode ? localStorage.setItem("randomStreak", streak) : localStorage.setItem("streak", streak);
+  localStorage.setItem(streakKey, streak);
 
-  if(isRandomMode) localStorage.setItem("isRandomWin", true);
+  if (isRandomMode) localStorage.setItem("isRandomWin", true);
   loadStreak();
 }
 
@@ -502,7 +499,7 @@ function resetTopPanel() {
 }
 
 //log for debug purposes
-const version = "2.1"
+const version = "2.2"
 function debug() {
   console.log("debug version " + version);
 }
