@@ -2,7 +2,7 @@
 // GLOBAL STATE
 // =========================
 const isRandomMode = window.location.pathname.includes("random.html");
-const streakKey = isRandomMode ? "randomStreak" : "random";
+const streakKey = isRandomMode ? "randomStreak" : "streak";
 
 let data = [];
 let target;
@@ -499,7 +499,7 @@ function resetTopPanel() {
 }
 
 //log for debug purposes
-const version = "2.2"
+const version = "2.2.1"
 function debug() {
   console.log("debug version " + version);
 }
