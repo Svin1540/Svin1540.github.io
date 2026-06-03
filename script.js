@@ -144,7 +144,11 @@ function renderGuess(char, save = true) {
 
     showEndGame(true);
 
-    if (isRandomMode) showNewRoundButton();
+    if (isRandomMode) {
+      if(!localStorage.getItem("isRandomWin"))
+        updateStreak(true);
+      showNewRoundButton();
+    }
 
     if (!isRandomMode) {
       const today = getTodayKey();
@@ -237,17 +241,22 @@ function loadGuesses() {
 // STREAK
 // =========================
 function loadStreak() {
-  if (isRandomMode) return;
-  document.getElementById("streak").textContent =
-    localStorage.getItem("streak") || 0;
+  document.getElementById("streak").textContent = (
+    isRandomMode ? localStorage.getItem("randomStreak")
+    : localStorage.getItem("streak")
+  ) || 0;
 }
 
 function updateStreak(win) {
-  let streak = parseInt(localStorage.getItem("streak") || 0);
+  let streak = parseInt((
+    isRandomMode ? localStorage.getItem("randomStreak") : localStorage.getItem("streak")
+  ) || 0);
 
   streak = win ? streak + 1 : 0;
 
-  localStorage.setItem("streak", streak);
+  isRandomMode ? localStorage.setItem("randomStreak", streak) : localStorage.setItem("streak", streak);
+
+  if(isRandomMode) localStorage.setItem("isRandomWin", true);
   loadStreak();
 }
 
@@ -384,6 +393,7 @@ function lockGame() {
 function newRound() {
   localStorage.removeItem("randomSeed");
   localStorage.removeItem("guesses_random");
+  localStorage.removeItem("isRandomWin");
 
   const seed = getOrCreateRandomSeed();
   target = data[seed];
@@ -492,7 +502,7 @@ function resetTopPanel() {
 }
 
 //log for debug purposes
-const version = "2.0"
+const version = "2.1"
 function debug() {
   console.log("debug version " + version);
 }
