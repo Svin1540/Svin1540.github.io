@@ -168,9 +168,8 @@ function renderGuess(char, save = true) {
     lockGame();
 
     if (isRandomMode) showNewRoundButton();
-    if (!isRandomMode) {
-      updateStreak(false);
-    }
+    updateStreak(false);
+    
 
     showEndGame(false);
   }
@@ -499,7 +498,7 @@ function resetTopPanel() {
 }
 
 //log for debug purposes
-const version = "2.2.1"
+const version = "2.3"
 function debug() {
   console.log("debug version " + version);
 }
