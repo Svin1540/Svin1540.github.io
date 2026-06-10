@@ -370,11 +370,11 @@ function updateHighlight() {
 function highlightNav() {
   const path = window.location.pathname;
 
-  if (path.includes("random.html")) {
-    document.getElementById("nav-random")?.classList.add("active");
-  } else {
-    document.getElementById("nav-daily")?.classList.add("active");
-  }
+  // if (path.includes("random.html")) {
+  //   document.getElementById("nav-random")?.classList.add("active");
+  // } else {
+  //   document.getElementById("nav-daily")?.classList.add("active");
+  // }
 }
 
 highlightNav();

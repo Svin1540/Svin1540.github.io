@@ -2,6 +2,7 @@
 // GLOBAL STATE
 // =========================
 const isRandomMode = window.location.pathname.includes("random.html");
+const streakKey = isRandomMode ? "randomColorStreak" : "colorStreak";
 
 let data = [];
 let target;
@@ -144,17 +145,23 @@ function renderGuess(char, save = true) {
     showColorAnswer();
     // document.getElementById("status").textContent = "✅ Correct!";
 
-    if (isRandomMode) showNewRoundButton();
+    if (isRandomMode) {
+      if (!localStorage.getItem("isColorRandomWin"))
+        updateStreak(true);
+      showNewRoundButton();
+    }
 
     if (!isRandomMode) {
       const today = getTodayKey();
       const lastWin = localStorage.getItem("lastColorWin");
 
       if (lastWin !== today) {
-        updateStreak(true);
         localStorage.setItem("lastColorWin", today);
+        updateStreak(true);
       }
     }
+    
+
   }
 
   guessCount += 1;
@@ -163,10 +170,7 @@ function renderGuess(char, save = true) {
     lockGame();
 
     if (isRandomMode) showNewRoundButton();
-
-    if (!isRandomMode) {
-      updateStreak(false);
-    }
+    updateStreak(false);
 
     showColorAnswer();
     // document.getElementById("status").textContent = "❌ You lost!";
@@ -185,7 +189,7 @@ function renderGuess(char, save = true) {
 // =========================
 function getStorageKey() {
   return isRandomMode
-    ? localStorage.getItem("randomColorSeed")
+    ? "colorGuesses_random"
     : "colorGuesses_" + getTodayKey();
 }
 
@@ -211,17 +215,19 @@ function loadGuesses() {
 // STREAK
 // =========================
 function loadStreak() {
-  if (isRandomMode) return;
   document.getElementById("streak").textContent =
-    localStorage.getItem("colorStreak") || 0;
+    localStorage.getItem(streakKey) || 0;
 }
 
 function updateStreak(win) {
-  let streak = parseInt(localStorage.getItem("colorStreak") || 0);
+  let streak = parseInt(localStorage.getItem(streakKey) || 0);
 
   streak = win ? streak + 1 : 0;
 
-  localStorage.setItem("colorStreak", streak);
+  localStorage.setItem(streakKey, streak);
+
+  if (isRandomMode) localStorage.setItem("isColorRandomWin", true);
+
   loadStreak();
 }
 
@@ -339,11 +345,11 @@ function updateHighlight() {
 function highlightNav() {
   const path = window.location.pathname;
 
-  if (path.includes("color.html")) {
-    document.getElementById("nav-color")?.classList.add("active");
-  } else {
-    document.getElementById("nav-daily")?.classList.add("active");
-  }
+  // if (path.includes("color.html")) {
+  //   document.getElementById("nav-color")?.classList.add("active");
+  // } else {
+  //   document.getElementById("nav-daily")?.classList.add("active");
+  // }
 }
 
 highlightNav();
@@ -357,7 +363,8 @@ function lockGame() {
 
 function newRound() {
   localStorage.removeItem("randomColorSeed");
-  // localStorage.removeItem("guesses_random");
+  localStorage.removeItem("isColorRandomWin")
+  localStorage.removeItem("colorGuesses_random");
 
   const seed = getOrCreateRandomSeed();
   target = data[seed];
@@ -435,6 +442,12 @@ function showColorAnswer() {
   img.src = "./images/" + target.image + ".webp";
   name.textContent = target.name;
   answer.classList.remove("hidden");
+  
+  document.getElementById("after-game").classList.remove("hidden");
+
+  if (isRandomMode) {
+    showNewRoundButton();
+  }
 }
 
 function resetColorAnswer() {
@@ -445,10 +458,14 @@ function resetColorAnswer() {
   answer.classList.add("hidden");
   img.src = "";
   name.textContent = "";
+
+  
+  document.getElementById("after-game").classList.add("hidden");
+
 }
 
 //log for debug purposes
-const version = "1.4"
+const version = "2.0"
 function debug() {
   console.log("color mode debug version " + version);
 }
