@@ -160,7 +160,7 @@ function renderGuess(char, save = true) {
         updateStreak(true);
       }
     }
-    
+
 
   }
 
@@ -302,9 +302,21 @@ function showDropdown() {
 // =========================
 // UI (NAV / EVENTS)
 // =========================
+var isClosing = false;
+var gameStop = false;
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".dropdown")) {
     optionsDiv.classList.add("hidden");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (isClosing || gameStop) { isClosing = false; return; }
+  
+  if (e.key == "Enter") {
+    e.preventDefault();
+    showDropdown();
+    searchInput.focus();
   }
 });
 
@@ -327,6 +339,7 @@ searchInput.addEventListener("keydown", (e) => {
 
   if (e.key === "Enter") {
     e.preventDefault();
+    isClosing = true;
     if (highlightedIndex >= 0) selectCharacter(highlightedIndex);
   }
 });
@@ -341,18 +354,6 @@ function updateHighlight() {
   const active = items[highlightedIndex];
   if (active) active.scrollIntoView({ block: "nearest" });
 }
-
-function highlightNav() {
-  const path = window.location.pathname;
-
-  // if (path.includes("color.html")) {
-  //   document.getElementById("nav-color")?.classList.add("active");
-  // } else {
-  //   document.getElementById("nav-daily")?.classList.add("active");
-  // }
-}
-
-highlightNav();
 
 // =========================
 // UI (GAME CONTROL)
@@ -391,6 +392,7 @@ function newRound() {
 
 function showNewRoundButton() {
   document.getElementById("new-round-btn").classList.remove("hidden");
+  document.getElementById("new-round-btn").focus();
 }
 
 function hideNewRoundButton() {
@@ -442,12 +444,13 @@ function showColorAnswer() {
   img.src = "./images/" + target.image + ".webp";
   name.textContent = target.name;
   answer.classList.remove("hidden");
-  
+
   document.getElementById("after-game").classList.remove("hidden");
 
   if (isRandomMode) {
     showNewRoundButton();
   }
+  gameStop = true;
 }
 
 function resetColorAnswer() {
@@ -459,13 +462,14 @@ function resetColorAnswer() {
   img.src = "";
   name.textContent = "";
 
-  
+
   document.getElementById("after-game").classList.add("hidden");
+  gameStop = false;
 
 }
 
 //log for debug purposes
-const version = "2.0"
+const version = "2.1"
 function debug() {
   console.log("color mode debug version " + version);
 }

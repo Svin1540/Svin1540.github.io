@@ -327,9 +327,21 @@ function showDropdown() {
 // =========================
 // UI (NAV / EVENTS)
 // =========================
+var isClosing = false;
+var gameStop = false;
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".dropdown")) {
     optionsDiv.classList.add("hidden");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (isClosing || gameStop) { isClosing = false; return; }
+  
+  if (e.key == "Enter") {
+    e.preventDefault();
+    showDropdown();
+    searchInput.focus();
   }
 });
 
@@ -352,6 +364,7 @@ searchInput.addEventListener("keydown", (e) => {
 
   if (e.key === "Enter") {
     e.preventDefault();
+    isClosing = true;
     if (highlightedIndex >= 0) selectCharacter(highlightedIndex);
   }
 });
@@ -366,18 +379,6 @@ function updateHighlight() {
   const active = items[highlightedIndex];
   if (active) active.scrollIntoView({ block: "nearest" });
 }
-
-function highlightNav() {
-  const path = window.location.pathname;
-
-  // if (path.includes("random.html")) {
-  //   document.getElementById("nav-random")?.classList.add("active");
-  // } else {
-  //   document.getElementById("nav-daily")?.classList.add("active");
-  // }
-}
-
-highlightNav();
 
 // =========================
 // UI (GAME CONTROL)
@@ -417,6 +418,7 @@ function newRound() {
 
 function showNewRoundButton() {
   document.getElementById("new-round-btn").classList.remove("hidden");
+  document.getElementById("new-round-btn").focus();
 }
 
 function hideNewRoundButton() {
@@ -484,6 +486,7 @@ function showEndGame(win) {
   if (isRandomMode) {
     showNewRoundButton();
   }
+  gameStop = true;
 }
 
 function resetTopPanel() {
@@ -495,10 +498,11 @@ function resetTopPanel() {
   status.textContent = "";
 
   document.getElementById("after-game").classList.add("hidden");
+  gameStop = false;
 }
 
 //log for debug purposes
-const version = "2.3"
+const version = "2.4"
 function debug() {
   console.log("debug version " + version);
 }
