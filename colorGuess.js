@@ -156,8 +156,8 @@ function renderGuess(char, save = true) {
       const lastWin = localStorage.getItem("lastColorWin");
 
       if (lastWin !== today) {
-        localStorage.setItem("lastColorWin", today);
         updateStreak(true);
+        localStorage.setItem("lastColorWin", today);
       }
     }
 
@@ -469,7 +469,7 @@ function resetColorAnswer() {
 }
 
 //log for debug purposes
-const version = "2.1"
+const version = "2.2"
 function debug() {
   console.log("color mode debug version " + version);
 }
