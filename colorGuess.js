@@ -133,7 +133,7 @@ function renderGuess(char, save = true) {
     <td style="background-color: ${char.color};"></td>
   `;
 
-  table.appendChild(row);
+  table.insertBefore(row , table.children[1]);
 
   if (save) saveGuess(char.name);
 

@@ -134,7 +134,7 @@ function renderGuess(char, save = true) {
     <td class="${brC}">${char.branch}</td>
   `;
 
-  table.appendChild(row);
+  table.insertBefore(row , table.children[1]);
 
   if (save) saveGuess(char.name);
 
