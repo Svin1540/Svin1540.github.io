@@ -26,10 +26,14 @@
   <div class="container">
     <h1>Color Guess</h1>
 
-    <div id="info">
-      🔥 Streak: <span id="streak">0</span> |
-      ⏳ Next: <span id="timer"></span>
-    </div>
+    <div id="after-game" class="hidden">
+        <span id="timer"></span>
+        <button id="new-round-btn" class="hidden" onclick="newRound()">New Game</button>
+      </div>
+
+      <div id="streak-container">
+        🔥 Streak: <span id="streak">0</span>
+      </div>
 
     <div id="targetColor">
 
