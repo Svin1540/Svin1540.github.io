@@ -1,0 +1,187 @@
+[
+    {
+        "name": "Amicia Michella",
+        "color": "#45E101",
+        "image": "amicia_michella"
+    },
+    {
+        "name": "Azura Cecillia",
+        "color": "#1B486F",
+        "image": "azura_cecillia"
+    },
+    {
+        "name": "Bonnivier Pranaja",
+        "color": "#00FFCD",
+        "image": "bonnivier_pranaja"
+    },
+    {
+        "name": "Derem Kado",
+        "color": "#F6D4DF",
+        "image": "derem_kado"
+    },
+    {
+        "name": "Elira Pendora",
+        "color": "#95C8D8",
+        "image": "elira_pendora"
+    },
+    {
+        "name": "Elu",
+        "color": "#E2364F",
+        "image": "elu"
+    },
+    {
+        "name": "Enna Alouette",
+        "color": "#858ED1",
+        "image": "enna_alouette"
+    },
+    {
+        "name": "Etna Crimson",
+        "color": "#DC143C",
+        "image": "etna_crimson"
+    },
+    {
+        "name": "Finana Ryugu",
+        "color": "#35D9AD",
+        "image": "finana_ryugu"
+    },
+    {
+        "name": "Hana Macchia",
+        "color": "#FFEFD5",
+        "image": "hana_macchia"
+    },
+    {
+        "name": "Higuchi Kaede",
+        "color": "#FBAF71",
+        "image": "higuchi_kaede"
+    },
+    {
+        "name": "Hyona Elatiora",
+        "color": "#800020",
+        "image": "hyona_elatiora"
+    },
+    {
+        "name": "Layla Alstroemeria",
+        "color": "#F9CACA",
+        "image": "layla_alstroemeria"
+    },
+    {
+        "name": "Mika Melatika",
+        "color": "#DDBFF8",
+        "image": "mika_melatika"
+    },
+    {
+        "name": "Millie Parfait",
+        "color": "#FEBC87",
+        "image": "millie_parfait"
+    },
+    {
+        "name": "Miyu Ottavia",
+        "color": "#FFAB75",
+        "image": "miyu_ottavia"
+    },
+    {
+        "name": "Moira",
+        "color": "#91ABD0",
+        "image": "moira"
+    },
+    {
+        "name": "Nagisa Arcinia",
+        "color": "#CC338B",
+        "image": "nagisa_arcinia"
+    },
+    {
+        "name": "Nara Haramaung",
+        "color": "#26C2CD",
+        "image": "nara_haramaung"
+    },
+    {
+        "name": "Nina Kosaka",
+        "color": "#660000",
+        "image": "nina_kosaka"
+    },
+    {
+        "name": "Petra Gurin",
+        "color": "#FFAE42",
+        "image": "petra_gurin"
+    },
+    {
+        "name": "Pomu Rainpuff",
+        "color": "#258E70",
+        "image": "pomu_rainpuff"
+    },
+    {
+        "name": "Rai Galilei",
+        "color": "#7DF9FF",
+        "image": "rai_galilei"
+    },
+    {
+        "name": "Reimu Endou",
+        "color": "#B90B4A",
+        "image": "reimu_endou"
+    },
+    {
+        "name": "Reza Avanluna",
+        "color": "#765CB8",
+        "image": "reza_avanluna"
+    },
+    {
+        "name": "Riksa Dhirendra",
+        "color": "#FF0103",
+        "image": "riksa_dhirendra"
+    },
+    {
+        "name": "Rosemi Lovelock",
+        "color": "#DC3753",
+        "image": "rosemi_lovelock"
+    },
+    {
+        "name": "Selen Tatsuki",
+        "color": "#7E4EAC",
+        "image": "selen_tatsuki"
+    },
+    {
+        "name": "Shibuya Hajime",
+        "color": "#D7FAD7",
+        "image": "shibuya_hajime"
+    },
+    {
+        "name": "Shizuka Rin",
+        "color": "#745399",
+        "image": "shizuka_rin"
+    },
+    {
+        "name": "Siska Leontyne",
+        "color": "#FFDFA0",
+        "image": "siska_leontyne"
+    },
+    {
+        "name": "Suzuya Aki",
+        "color": "#F2F9C3",
+        "image": "suzuya_aki"
+    },
+    {
+        "name": "Taka Radjiman",
+        "color": "#303764",
+        "image": "taka_radjiman"
+    },
+    {
+        "name": "Tsukino Mito",
+        "color": "#E43F3B",
+        "image": "tsukino_mito"
+    },
+    {
+        "name": "Xia Ekavira",
+        "color": "#F2F680",
+        "image": "xia_ekavira"
+    },
+    {
+        "name": "Yuuki Chihiro",
+        "color": "#7BB3EE",
+        "image": "yuuki_chihiro"
+    },
+    {
+        "name": "ZEA Cornelia",
+        "color": "#FBEC5D",
+        "image": "zea_cornelia"
+    }
+]

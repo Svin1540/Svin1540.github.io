@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nijisanji Daily Color Guess Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 600px)">
+</head>
+
+<body>
+
+    <div class="header">
+        <!-- <h2 class="logo">Daily</h2> -->
+
+        <div class="nav">
+            <a href="index.html" id="nav-daily">Daily</a>
+            <a href="random.html" id="nav-random">Random</a>
+            <a href="color.html" id="nav-color">Color</a>
+            <a href="colorrandom.html" id="nav-color-random" class="active">Color Random</a>
+            <button id="open-settings">⚙️ Settings</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Color Guess</h1>
+
+        <div id="top-panel">
+            <div id="targetColor">
+
+                <div id="color-box"></div>
+                <div id="color-answer" class="hidden">
+                    <img id="color-image" src="">
+                    <p id="color-name"></p>
+                </div>
+
+            </div>
+            <!-- Status -->
+            <div id="status" class="hidden"></div>
+
+            <!-- Timer OR New Game -->
+            <div id="after-game" class="hidden">
+                <span id="timer"></span>
+                <button id="new-round-btn" class="hidden" onclick="newRound()">New Game</button>
+            </div>
+
+            <!-- Streak (always visible) -->
+            <div id="streak-container">
+                🔥 Streak: <span id="streak">0</span>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <input type="text" id="search" placeholder="Search character..." autocomplete="off" autocorrect="off"
+                autocapitalize="off" spellcheck="false" name="search_fake" onfocus="showDropdown()"
+                oninput="filterList()" />
+            <div id="options" class="options hidden"></div>
+        </div>
+
+        <table id="resultColor">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Color</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Settings</h2>
+
+            <label>
+                <input type="checkbox" id="setting-unlimited">
+                Unlimited Tries
+            </label>
+
+            <label>
+                <input type="checkbox" id="setting-hint">
+                Enable Hints
+            </label>
+
+            <br><br>
+            <button onclick="closeSettings()">Close</button>
+        </div>
+    </div>
+
+    <script src="colorGuess.js"></script>
+</body>
+
+</html>
