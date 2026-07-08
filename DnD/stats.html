@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="nav">
+        <a href="index.html">Roll</a>
+    </div>
+    <span class="spanMulti">
+        <div id="d20multi">
+            <div class="buttonContainer">
+                <button onclick="multiRoll(10)">Roll 10</button>
+                <button onclick="multiRoll(100)">Roll 100</button>
+                <button onclick="multiRoll(1000)">Roll 1000</button>
+                <button id="customRollButton" onclick="multiRoll(-1)" hidden>Custom Roll</button>
+            </div>
+            <div id="d20multiLog">
+
+            </div>
+            <table id="d20multiLogTable">
+                <tr>
+                    <th>Roll Dice Number</th>
+                    <th>Times Rolled</th>
+                    <th>Graph Presentation</th>
+                    <th>Percentage vs Average</th>
+                </tr>
+            </table>
+        </div>
+    </span>
+    <span class="spanMulti">
+        Config
+        <div>
+            <div>
+                Dice Face: 
+                <input id="customDice" type="number" min="2" max="1000" value="20" onclick="this.select()"/>
+            </div>
+            <div>
+                Roll Times: 
+                <input id="customRoll" type="number" min="1" value="10" onclick="this.select()" />
+            </div>
+            <button onclick="test()">Change</button>
+        </div>
+    </span>
+    <div id="average">
+        
+    </div>
+    <div id="expectedAverage">
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

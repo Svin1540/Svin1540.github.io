@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lancer</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="nav">
+        <a href="index.html">Back</a>
+    </div>
+    <div>
+        <div>
+            Save Box Number:
+            <input type="number" id="sbIpt" />
+        </div>
+        <div>
+            <button onclick="createBoxes()">create box</button>
+        </div>
+
+        <br>
+
+        <table id="diceResultContainer">
+            <tbody>
+                <tr></tr>
+                <tr></tr>
+            </tbody>
+        </table>
+
+        <table id="tableContainer">
+            <tr>
+                <td><button class="inputDice" onclick="saveDiceNum(1)">1</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(2)">2</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(3)">3</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(4)">4</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(5)">5</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(6)">6</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(7)">7</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(8)">8</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(9)">9</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(10)">10</button></td>
+            </tr>
+            <tr>
+                <td><button class="inputDice" onclick="saveDiceNum(11)">11</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(12)">12</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(13)">13</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(14)">14</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(15)">15</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(16)">16</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(17)">17</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(18)">18</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(19)">19</button></td>
+                <td><button class="inputDice" onclick="saveDiceNum(20)">20</button></td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <button class="inputDice" onclick="saveDiceNum(-1)">Empty Cell</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <button class="inputDice" onclick="nextIndex()">Cycle</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    Save Key: 
+                    <input type="text" placeholder="Insert Key" id="storageKey" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <button class="inputDice" onclick="openPopup(false)">Save</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="10">
+                    <button class="inputDice" onclick="openPopup(true)">Load</button>
+                </td>
+            </tr>
+            <tr id="saveConfirm" hidden>
+                <td colspan="5">
+                    <button class="inputDice" onclick="saveSession();closePopup()">Yes</button>
+                </td>
+                <td colspan="5">
+                    <button class="inputDice" onclick="closePopup()">No</button>
+                </td>
+            </tr>
+            <tr id="loadConfirm" hidden>
+                <td colspan="5">
+                    <button class="inputDice" onclick="loadSession();closePopup()">Yes</button>
+                </td>
+                <td colspan="5">
+                    <button class="inputDice" onclick="closePopup()">No</button>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div>
+            Key List
+        </div>
+        <textarea id="keyList" readonly>
+
+        </textarea>
+    </div>
+
+
+    <script src="lancerScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+#d20single,
+#d20multi {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+textarea {
+    field-sizing: content;
+    resize: none;
+}
+
+th {
+    width: 10vw;
+}
+
+td {
+    border: 1px black solid;
+}
+
+.spanMulti {
+    margin: 0px 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#nav {
+    margin-bottom: 20px;
+}
+
+.row {
+    display: grid;
+    width: 50%;
+    text-align: center;
+}
+
+.dices{
+    background-color: #f0ff00;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.dices:focus{
+    background-color: #808f00;
+}
+
+.diceRes{
+    border: 1px solid black;
+    display: inline-flex;
+    width: 20px;
+    margin: 0px 5px 10px;
+    justify-content: center;
+}
+
+hr{
+    flex: 1;
+}

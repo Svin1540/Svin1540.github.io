@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dice</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div id="nav">
+            <a href="stats.html">test</a>
+            <a href="lancerNote.html">Lancer Note</a>
+        </div>
+
+        <div id="d20single">
+            <input id="d20singleValue" value="0" readonly />
+            <input id="comment" placeholder="Comment here..." />
+            <div class="buttonContainer">
+                <button onclick="singleRoll()">Roll</button>
+                <button onclick="toggleLogD20Single()">Toggle Log</button>
+            </div>
+            <textarea id="d20singleLog" hidden readonly></textarea>
+        </div>
+
+        <hr />
+
+        <div>
+            <div id="diceContainer">
+                <!--  -->
+            </div>
+            <div>
+                <span>Add Dice:</span>
+                <span>
+                    <button onclick="addDice(4)">d4</button>
+                    <button onclick="addDice(6)">d6</button>
+                    <button onclick="addDice(8)">d8</button>
+                    <button onclick="addDice(10)">d10</button>
+                    <button onclick="addDice(12)">d12</button>
+                    <button onclick="addDice(20)">d20</button>
+                </span>
+            </div>
+            <br />
+            <div id="diceTotal">
+                <!--  -->
+            </div>
+        </div>
+        <br />
+        <div>
+            <button onclick="rollDND()">Roll</button>
+            <button onclick="clearResult()">Clear</button>
+        </div>
+        <div id="resultContainer">
+            <!--  -->
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
