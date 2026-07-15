@@ -44,6 +44,8 @@ const Color2 = [
 
 const ColorCode = Color1;
 
+const StorageSignature = "DNDKEY_"
+
 const boxContainer = document.getElementById("diceResultContainer").children[0];
 
 var diceResultBoxNumber = 3;
@@ -53,13 +55,13 @@ var saveArr = [];
 function saveSession() {
     let key = document.getElementById("storageKey").value;
     if (!key) return;
-    localStorage.setItem(key, JSON.stringify(saveArr));
+    localStorage.setItem((StorageSignature + key), JSON.stringify(saveArr));
 }
 
 function loadSession() {
     let key = document.getElementById("storageKey").value;
     if (!key) return;
-    saveArr = JSON.parse(localStorage.getItem(key)) || [];
+    saveArr = JSON.parse(localStorage.getItem((StorageSignature + key))) || [];
 
     diceResultBoxNumber = saveArr.length;
 
@@ -170,7 +172,9 @@ function showKeys() {
     let element = document.getElementById("keyList");
     element.value = "";
     for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
+        let key = localStorage.key(i);
+        if(!key.startsWith(StorageSignature)) continue;
+        key = key.slice(7)
         element.value += key + "\n";
     }
 }
