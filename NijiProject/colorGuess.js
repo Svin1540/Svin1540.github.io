@@ -156,6 +156,7 @@ function renderGuess(char, save = true) {
       const lastWin = localStorage.getItem("lastColorWin");
 
       if (lastWin !== today) {
+        localStorage.removeItem(getStorageKey(lastWin))
         updateStreak(true);
         localStorage.setItem("lastColorWin", today);
       }
@@ -187,10 +188,10 @@ function renderGuess(char, save = true) {
 // =========================
 // STORAGE
 // =========================
-function getStorageKey() {
+function getStorageKey(todayKey = getTodayKey()) {
   return isRandomMode
     ? "colorGuesses_random"
-    : "colorGuesses_" + getTodayKey();
+    : "colorGuesses_" + todayKey;
 }
 
 function saveGuess(name) {
