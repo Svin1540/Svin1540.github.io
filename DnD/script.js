@@ -91,8 +91,8 @@ function modifierRoll(num, mod) {
 //     currentDiceContainer.style.gridTemplateColumns = "repeat(" + currentDiceContainer.childElementCount + ",1fr)";
 // }
 
-function rollDND(){
-    if(!dices || dices.length == 0) return;
+function rollDND() {
+    if (!dices || dices.length == 0) return;
     let currentDiceNum = 0;
     let currentDiceContainer = null;
     let total = 0;
@@ -110,7 +110,7 @@ function rollDND(){
     resultContainer.prepend(newRoll);
     resultContainer.prepend(dropdown);
     dices.forEach(die => {
-        if(die != currentDiceNum){
+        if (die != currentDiceNum) {
             currentDiceNum = die;
 
             let newDiceNumber = document.createElement("div");
@@ -129,9 +129,9 @@ function rollDND(){
         let newResult = document.createElement("span");
         newResult.innerText = res;
         newResult.classList.add("diceRes");
-        switch(res){
-            case 1 : newResult.style.backgroundColor = "#ff0000"; break;
-            case die : newResult.style.backgroundColor = "#00ff00"; break;
+        switch (res) {
+            case 1: newResult.style.backgroundColor = "#ff0000"; break;
+            case die: newResult.style.backgroundColor = "#00ff00"; break;
         }
         currentDiceContainer.append(newResult);
     })
@@ -189,7 +189,7 @@ function updateDiceVisual() {
 
 }
 
-function clearResult(){
+function clearResult() {
     resultContainer.replaceChildren();
 }
 
@@ -209,6 +209,11 @@ function placeLog(res) {
 
 function multiLog(arrVal) {
     let total = 0;
+    let totalRoll = 0;
+    let max = 0;
+    let maxIndex = [];
+    let medianIndex = -1;
+    let doubleMedian = false;
     d20multiLog.textContent = "Repeat : " + arrVal[arrVal.length - 1]
 
     d20multiLogTable.innerHTML = (
@@ -229,10 +234,36 @@ function multiLog(arrVal) {
             <td>` + CountAverage(arrVal[i]) + `</td>
         </tr>
         `
+        totalRoll += arrVal[i];
         total += ((i + 1) * arrVal[i]);
+
+
+        if(doubleMedian && arrVal[i] != 0){
+            medianIndex = (medianIndex + i + 1)/2;
+            doubleMedian = false;
+        }
+
+        if (medianIndex == -1 && totalRoll >= multirollNumber / 2) {
+            medianIndex = i + 1;
+            if (totalRoll == multirollNumber/2)
+                doubleMedian = true;
+        }
+
+        if(arrVal[i] == max){
+            maxIndex.push(i+1);
+        }
+
+        if (arrVal[i] > max) {
+            max = arrVal[i];
+            maxIndex = [];
+            maxIndex.push(i+1);
+        }
     }
 
-    averageLog.innerText = "Average: " + (total / multirollNumber)
+    averageLog.innerText = "Average: " + (total / multirollNumber);
+    averageLog.innerText += ("\nMedian: " + (medianIndex));
+    averageLog.innerText += ("\nMode: " + (maxIndex));
+
     document.getElementById("expectedAverage").innerText = "Expected Average: " + (((customRollEnabled ? diceSize : 20) + 1) / 2)
 }
 
