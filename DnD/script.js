@@ -214,6 +214,7 @@ function multiLog(arrVal) {
     let maxIndex = [];
     let medianIndex = -1;
     let doubleMedian = false;
+    let ganjilAmount = 0;
     d20multiLog.textContent = "Repeat : " + arrVal[arrVal.length - 1]
 
     d20multiLogTable.innerHTML = (
@@ -237,6 +238,9 @@ function multiLog(arrVal) {
         totalRoll += arrVal[i];
         total += ((i + 1) * arrVal[i]);
 
+        if(i % 2 == 0){
+            ganjilAmount += arrVal[i];
+        }
 
         if(doubleMedian && arrVal[i] != 0){
             medianIndex = (medianIndex + i + 1)/2;
@@ -265,6 +269,8 @@ function multiLog(arrVal) {
     averageLog.innerText += ("\nMode: " + (maxIndex));
 
     document.getElementById("expectedAverage").innerText = "Expected Average: " + (((customRollEnabled ? diceSize : 20) + 1) / 2)
+
+    document.getElementById("oddeven").innerText = ganjilAmount + " / " + (multirollNumber - ganjilAmount);
 }
 
 function GraphingRoll(val) {
