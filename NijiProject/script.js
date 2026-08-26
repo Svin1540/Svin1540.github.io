@@ -30,6 +30,7 @@ let settings = { ...defaultSettings };
 // =========================
 const optionsDiv = document.getElementById("options");
 const searchInput = document.getElementById("search");
+// const modal = document.getElementById("modalOverlay");
 const modal = document.getElementById("settings-modal");
 
 // =========================
@@ -72,6 +73,28 @@ fetch("data.json")
 // =========================
 // RANDOM / DAILY LOGIC
 // =========================
+function doubleRandom(dateSeed, hashMember){
+    let str = `${dateSeed}:${hashMember}`;
+    let hash = 2166136261; //FNV1-a offset basis
+
+    for (let i = 0; i < str.length; i++) {
+        hash ^= str.charCodeAt(i);
+        hash = Math.imul(hash, 16777619); //FNV1-a
+    }
+
+    hash += hash << 13;
+    hash ^= hash >>> 7;
+    hash += hash << 3;
+    hash ^= hash >>> 17;
+    hash += hash << 5;
+
+    hash = (hash >>> 0) / 4294967296; //32 bit unsigned
+
+    return hash;
+  
+  // return Math.floor(hash * data.length);
+}
+
 function getTodayKey() {
   const now = new Date();
   const year = now.getFullYear();
@@ -437,8 +460,8 @@ function loadSettings() {
     maxTries = Infinity;
   }
 
-  document.getElementById("setting-unlimited").checked = settings.unlimitedTry;
-  document.getElementById("setting-hint").checked = settings.hint;
+  // document.getElementById("setting-unlimited").checked = settings.unlimitedTry;
+  // document.getElementById("setting-hint").checked = settings.hint;
 }
 
 function saveSettings() {
@@ -453,8 +476,9 @@ document.getElementById("open-settings").onclick = () => {
   loadSettings();
 };
 
-function closeSettings() {
-  saveSettings();
+function closeSettings(e) {
+  if(e.target !== modal) return;
+  // saveSettings();
   modal.classList.add("hidden");
 }
 
@@ -503,9 +527,16 @@ function resetTopPanel() {
 }
 
 //log for debug purposes
-const version = "2.4"
+const version = "3 experimental"
 function debug() {
   console.log("debug version " + version);
+  // debugRandom();
 }
 
 debug()
+
+function debugRandom(){
+  for(let i = 0; i < 100; i++){
+    console.log(doubleRandom(2020121+i, 23002131));
+  }
+}
