@@ -4,13 +4,20 @@
 const isRandomMode = window.location.pathname.includes("random.html");
 const streakKey = isRandomMode ? "randomStreak" : "streak";
 
+let rawData = [];
 let data = [];
+let dataLength;
 let target;
 let selected = null;
+let hasPlayed = false;
 let hasWon = false;
 
 let highlightedIndex = 0;
 let filteredList = [];
+
+let currentConfigKey;
+let allowedChar = [];
+let allowedCharLength;
 
 let guessCount = 0;
 let maxTries = 6;
@@ -30,12 +37,41 @@ let settings = { ...defaultSettings };
 // =========================
 const optionsDiv = document.getElementById("options");
 const searchInput = document.getElementById("search");
-// const modal = document.getElementById("modalOverlay");
-const modal = document.getElementById("settings-modal");
+const modal = document.getElementById("modalOverlay");
+// const modal = document.getElementById("settings-modal");
 
 // =========================
 // INIT
 // =========================
+
+
+document.addEventListener("DOMContentLoaded",initData)
+
+
+function initData(){
+  fetch("data.json")
+  .then(res => {
+    if (!res.ok) throw new Error("Fetch failed");
+    return res.json();
+  })
+  .then(json => {
+    console.log("Loaded via fetch");
+    rawData = json;
+    dataLength = rawData.length;
+    initSetting();
+    initGame();
+  })
+  .catch(err => {
+    console.warn("Fetch failed", err);
+  });
+}
+
+function initSetting() {
+  loadSettings();
+  data = rawData.filter((_, index) => allowedChar[index] == true);
+  allowedCharLength = data.length;
+}
+
 function initGame() {
   if (isRandomMode) {
     const seed = getOrCreateRandomSeed();
@@ -54,44 +90,27 @@ function initGame() {
 }
 
 // =========================
-// DATA FETCH
-// =========================
-fetch("data.json")
-  .then(res => {
-    if (!res.ok) throw new Error("Fetch failed");
-    return res.json();
-  })
-  .then(json => {
-    console.log("Loaded via fetch");
-    data = json;
-    initGame();
-  })
-  .catch(err => {
-    console.warn("Fetch failed", err);
-  });
-
-// =========================
 // RANDOM / DAILY LOGIC
 // =========================
-function doubleRandom(dateSeed, hashMember){
-    let str = `${dateSeed}:${hashMember}`;
-    let hash = 2166136261; //FNV1-a offset basis
+function doubleRandom(dateSeed, hashMember) {
+  let str = `${dateSeed}:${hashMember}`;
+  let hash = 2166136261; //FNV1-a offset basis
 
-    for (let i = 0; i < str.length; i++) {
-        hash ^= str.charCodeAt(i);
-        hash = Math.imul(hash, 16777619); //FNV1-a
-    }
+  for (let i = 0; i < str.length; i++) {
+    hash ^= str.charCodeAt(i);
+    hash = Math.imul(hash, 16777619); //FNV1-a
+  }
 
-    hash += hash << 13;
-    hash ^= hash >>> 7;
-    hash += hash << 3;
-    hash ^= hash >>> 17;
-    hash += hash << 5;
+  // hash += hash << 13;
+  // hash ^= hash >>> 7;
+  // hash += hash << 3;
+  // hash ^= hash >>> 17;
+  // hash += hash << 5;
 
-    hash = (hash >>> 0) / 4294967296; //32 bit unsigned
+  hash = (hash >>> 0) / 4294967296; //32 bit unsigned
 
-    return hash;
-  
+  return hash;
+
   // return Math.floor(hash * data.length);
 }
 
@@ -111,14 +130,14 @@ function seededRandom(seed) {
 function getDailyTarget(data) {
   const seed = parseInt(getTodayKey().replace(/-/g, ""));
   const rand = seededRandom(seed);
-  return data[Math.floor(rand * data.length)];
+  return data[Math.floor(rand * allowedCharLength)];
 }
 
 function getOrCreateRandomSeed() {
   let seed = localStorage.getItem("randomSeed");
 
   if (!seed) {
-    seed = Math.floor(Math.random() * data.length);
+    seed = Math.floor(Math.random() * allowedCharLength);
     localStorage.setItem("randomSeed", seed);
   }
 
@@ -157,9 +176,18 @@ function renderGuess(char, save = true) {
     <td class="${brC}">${char.branch}</td>
   `;
 
-  table.insertBefore(row , table.children[1]);
+  table.insertBefore(row, table.children[1]);
 
   if (save) saveGuess(char.name);
+
+  if(!hasPlayed){
+    hasPlayed = true;
+    const today = getTodayKey();
+    if(today != localStorage.getItem("lastPlayed")){
+      localStorage.setItem("lastPlayed", today);
+      saveTodayConfig(allowedChar);
+    }
+  }
 
   // WIN CONDITION
   if (char.name === target.name) {
@@ -193,7 +221,7 @@ function renderGuess(char, save = true) {
 
     if (isRandomMode) showNewRoundButton();
     updateStreak(false);
-    
+
 
     showEndGame(false);
   }
@@ -361,7 +389,7 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (isClosing || gameStop) { isClosing = false; return; }
-  
+
   if (e.key == "Enter") {
     e.preventDefault();
     showDropdown();
@@ -453,32 +481,39 @@ function hideNewRoundButton() {
 // SETTINGS UI
 // =========================
 function loadSettings() {
-  const saved = JSON.parse(localStorage.getItem("settings"));
-  if (saved) settings = { ...defaultSettings, ...saved };
+  // const saved = JSON.parse(localStorage.getItem("settings"));
+  // if (saved) settings = { ...defaultSettings, ...saved };
 
-  if (settings.unlimitedTry) {
-    maxTries = Infinity;
-  }
+  // if (settings.unlimitedTry) {
+  //   maxTries = Infinity;
+  // }
 
   // document.getElementById("setting-unlimited").checked = settings.unlimitedTry;
   // document.getElementById("setting-hint").checked = settings.hint;
+  allowedChar = loadConfig();
+
+  if(allowedChar.length != dataLength){
+    print("something went wrong with data length");
+    allowedChar.length = dataLength;
+  }
 }
 
 function saveSettings() {
-  settings.unlimitedTry = document.getElementById("setting-unlimited").checked;
-  settings.hint = document.getElementById("setting-hint").checked;
+  // settings.unlimitedTry = document.getElementById("setting-unlimited").checked;
+  // settings.hint = document.getElementById("setting-hint").checked;
 
-  localStorage.setItem("settings", JSON.stringify(settings));
+  // localStorage.setItem("settings", JSON.stringify(settings));
+  saveConfig(allowedChar)
 }
 
-document.getElementById("open-settings").onclick = () => {
-  modal.classList.remove("hidden");
-  loadSettings();
-};
+// document.getElementById("open-settings").onclick = () => {
+//   modal.classList.remove("hidden");
+//   loadSettings();
+// };
 
 function closeSettings(e) {
-  if(e.target !== modal) return;
-  // saveSettings();
+  if (e.target !== modal) return;
+  saveSettings();
   modal.classList.add("hidden");
 }
 
@@ -530,13 +565,14 @@ function resetTopPanel() {
 const version = "3 experimental"
 function debug() {
   console.log("debug version " + version);
+  console.log("todo: add hasplayed logic into random and color. separate script if possible");
   // debugRandom();
 }
 
 debug()
 
-function debugRandom(){
-  for(let i = 0; i < 100; i++){
-    console.log(doubleRandom(2020121+i, 23002131));
+function debugRandom() {
+  for (let i = 0; i < 100; i++) {
+    console.log(doubleRandom(2020121 + i, 23002131));
   }
 }

@@ -67,26 +67,115 @@
     </table>
   </div>
 
-  <div id="settings-modal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Settings</h2>
+  <div
+            id="modalOverlay"
+            class="modal-overlay hidden"
+            onclick="closeSettings(event)"
+        >
+            <div class="modal-box">
+                <!-- Navigation -->
+                <nav class="modal-nav">
+                    <button onclick="showModalPage(0)">Settings</button>
+                    <button onclick="showModalPage(1)">Characters</button>
+                </nav>
 
-      <label>
-        <input type="checkbox" id="setting-unlimited">
-        Unlimited Tries
-      </label>
+                <!-- Page 1 -->
+                <section class="modal-page" id="modalPage0">
+                    <div class="category">
+                        <h3 onclick="toggleCategory(this)">General</h3>
 
-      <label>
-        <input type="checkbox" id="setting-hint">
-        Enable Hints
-      </label>
+                        <div class="category-content">
+                            <label>
+                                <input type="checkbox" />
+                                Enable notifications
+                            </label>
 
-      <br><br>
-      <button onclick="closeSettings()">Close</button>
-    </div>
-  </div>
+                            <label>
+                                <input type="checkbox" />
+                                Show animations
+                            </label>
 
-  <script src="script.js"></script>
+                            <label>
+                                <input type="checkbox" />
+                                Enable sound
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h3 onclick="toggleCategory(this)">Display</h3>
+
+                        <div class="category-content">
+                            <label>
+                                <input type="checkbox" />
+                                Dark mode
+                            </label>
+
+                            <label>
+                                <input type="checkbox" />
+                                Compact layout
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page 2 -->
+                <section class="modal-page hidden" id="chars-checklist">
+                    <div class="category">
+                        <h3 onclick="toggleCategory(this)">Nijisanji</h3>
+
+                        <div class="category-content">
+                            <label>
+                                <input type="checkbox" />
+                                EN
+                            </label>
+
+                            <label>
+                                <input type="checkbox" />
+                                ID
+                            </label>
+
+                            <label>
+                                <input type="checkbox" />
+                                JP
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h3 onclick="toggleCategory(this)">Generation</h3>
+
+                        <div class="category-content">
+                            <label>
+                                <input type="checkbox" />
+                                First Generation
+                            </label>
+
+                            <label>
+                                <input type="checkbox" />
+                                Second Generation
+                            </label>
+
+                            <label>
+                                <input type="checkbox" />
+                                Third Generation
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div id="manual-config" class="settings-page hidden">
+                        <h2>Character Sources</h2>
+
+                        <div id="source-groups"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+  <script src="guessGeneral.js"></script>
+  <script src="guessRandom.js"></script>
+  <script src="modal.js"></script>
 </body>
 
 </html>
